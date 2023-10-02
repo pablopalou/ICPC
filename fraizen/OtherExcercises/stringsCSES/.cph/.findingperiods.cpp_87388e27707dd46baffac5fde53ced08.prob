@@ -1,0 +1,1 @@
+{"name":"Local: findingperiods","url":"/Users/pablopalou/Documents/ICPC/fraizen/OtherExcercises/stringsCSES/findingperiods.cpp","tests":[{"id":1692043883969,"input":"abcabca","output":"3 6 7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/pablopalou/Documents/ICPC/fraizen/OtherExcercises/stringsCSES/findingperiods.cpp","group":"local","local":true}
