@@ -60,6 +60,7 @@ template <class T, class V> void _print(map <T, V> v) {cout << "[ "; for (auto i
 template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t i = 0; i < N; ++i) {_print(arr[i]); cout << " ";}cout << "]";}
 
 void solve() {
+
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -68,9 +69,15 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
+    // BORRAR
+    freopen("A.in", "r", stdin);
+    freopen("A.out", "w", stdout);
+
     int cases = 1;
     // cin >> cases;
     while(cases--){
         solve();
     }
+
+    return 0;
 }

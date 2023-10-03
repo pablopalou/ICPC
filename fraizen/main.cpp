@@ -31,6 +31,10 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    // BORRAR
+    freopen("main.in", "r", stdin);
+    freopen("main.out", "w", stdout);
+
     int cases;
     cin >> cases;
     while (cases)
