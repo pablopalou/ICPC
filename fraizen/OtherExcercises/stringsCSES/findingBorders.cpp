@@ -23,6 +23,10 @@ typedef unordered_map<int, string> umis;
 #define triplet pair<ll,pair<ll,ll>>
 #define MAXLEN 100010
 
+// Al parecer para encontrar los borders de un string tengo que fijarme el ultimo border y los border de ese borders. Ya que el border de un border tambien es un border del string original. 
+// Primero hacemos la table pi (que es la que muestro en el codigo de abajo).
+// longest proper prefix that is also a suffix for each substring.
+
 vi preProcessPiTable(string s1) {
     int n = s1.length();
     int len = 0;
@@ -42,8 +46,6 @@ vi preProcessPiTable(string s1) {
             }
         }
     }
-    // for(auto it: pi)
-    //     cout << it << " ";
     return pi;
 }
 
@@ -62,7 +64,6 @@ int main() {
         j = pi[j-1];
     }
     reverse(res.begin(), res.end());
-    // sort(res.begin(),res.end());
     for(auto it: res)
         cout << it << " ";
 }

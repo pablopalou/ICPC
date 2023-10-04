@@ -68,7 +68,6 @@ void z_function(char s[]){
 // }
 
 void solve(char s[]) {
-    // vector<int> z = z_function_string(s);
     z_function(s);
     int n = strlen(s);
     for(int i = 1;i<n;i++){
@@ -82,8 +81,6 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     
-    // Parsing
-    // cin >> s;
     cin.getline(s, MAXN);
     
     solve(s);

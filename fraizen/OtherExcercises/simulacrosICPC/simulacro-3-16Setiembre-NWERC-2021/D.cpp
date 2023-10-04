@@ -21,6 +21,7 @@ typedef unordered_map<ll, string> umis;
 #define fre(s) for(auto e:s)
 #define MAXN 1000008
 
+//NO FUNCIONA
 struct P {
     ll x,y;
     void read(){

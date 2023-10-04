@@ -38,6 +38,7 @@ void kmppre(string s1, string s2){
 }
 
 void solve(string s1, string s2) {
+    //ojo que este es modficado me parece
     kmppre(s1,s2);
     int res = 0;
     int i=0, j=0;

@@ -59,6 +59,7 @@ template <class T> void _print(multiset <T> v) {cout << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cout << "[ "; for (auto i : v) {_print(i); cout << " ";} cout << "]";}
 template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t i = 0; i < N; ++i) {_print(arr[i]); cout << " ";}cout << "]";}
  
+// NO FUNCIONO
 void solve() {
     ll n;
     cin >>n;

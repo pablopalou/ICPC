@@ -24,6 +24,7 @@ typedef unordered_map<ll, string> umis;
 #define MAXN 1000008
 
 int main() {
+    //NO FUNCIONA
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);

@@ -61,7 +61,6 @@ int main() {
                 //     prDouble(cur);
                 // }
                 if ( fabs(cur - res) < best){
-                    // cout("NADIE");
                     best = fabs(cur - res);
                     ans = {i,j*i,k*j*i};
                 } 

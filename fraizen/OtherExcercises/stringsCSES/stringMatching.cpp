@@ -107,8 +107,5 @@ int main() {
     cin >> text;
     cin >> pattern;
 
-    // transform(text.begin(), text.end(), text.begin(), ::tolower);
-    // transform(pattern.begin(), pattern.end(), pattern.begin(), ::tolower);
-    
     solve(text, pattern);
 }

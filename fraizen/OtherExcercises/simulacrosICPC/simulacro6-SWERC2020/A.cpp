@@ -64,7 +64,7 @@ void solve() {
     cin >> n >> k;
     map<string, pair<int,int>> m;
     string a;
-    getline(cin,a);
+    getline(cin,a); // para limpiar el buffer
     priority_queue<tuple<pair<int,int>, string>> pq;
     fr(0,3*n){
         // cout(i);
