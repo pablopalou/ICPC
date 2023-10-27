@@ -63,22 +63,55 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    string s; cin >> s;
+    ll n = s.size();
+    ll pos; cin >> pos;
+    if (n ==1 ){ //esto se podria comentar me parece
+        cout << s[0];
+        return;
+    }
+    ll cur = 0;
+    ll iter = 0;
+    for(ll i=n; i>0 ;i--){
+        cur += i;
+        if (pos <= cur){
+            break;
+        }
+        iter++;
+    }
+    // en iter nos quedo la iteracion en la que estamos parados.
+    // que posicion de letra necesitamos? 
+    ll totalPos = (n * (n+1)) / 2; 
+    ll realPos = totalPos - (((n-iter) * (n-iter+1)) / 2);
+    pos -= realPos;
+    ll inv = 0;
+    ll posUltInv = -1;
+    string stringRes = "";
+    ll i = 1;
+    while(i < s.size()){
+        if (s[i] < s[i-1] && iter > inv){
+            inv++;
+            while (s[i] < stringRes[stringRes.size()-1] && iter > inv){
+                inv++;
+                stringRes.pop_back();
+            }
+        } else {
+            stringRes += s[i-1];
+        }
+        i+=1;
+    }
+    stringRes += s[s.size()-1];
+    cout << stringRes[pos-1];
 }
 
 // ACORDATE DE USAR LONG LONG
-// PENSAR LOS EJERCICIOS AL REVES
 int main() {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
-
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

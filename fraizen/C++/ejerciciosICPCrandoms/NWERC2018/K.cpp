@@ -63,19 +63,44 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    int n; int m; cin >> n >> m;
+    string aEnd; cin >> aEnd;
+    string b; cin >> b;
+    char a[m];
+    int j = 0;
+    for(int i = m-1; i >= m-n; i--){
+        j++;
+        a[i] = aEnd[n-j];
+    }
+    int i = 0;
+    map<char, int> mapa;
+    for(char c = 'a'; c <= 'z'; c++){
+        mapa[c] = i;
+        i++;
+    }
+    char conv[26];
+    char c = 'a';
+    fr(0,26){
+        conv[i] = c;
+        c++; 
+    }
+    for(int i = m-n-1; i >= 0; i--){
+        a[i] = conv[((mapa[b[i+n]] - mapa[a[i+n]]) + 26) % 26];
+    }
+    fr(0,m){
+        cout << a[i];
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
-// PENSAR LOS EJERCICIOS AL REVES
 int main() {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("A.in", "r", stdin);
+    // freopen("A.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

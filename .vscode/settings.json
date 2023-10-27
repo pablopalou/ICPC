@@ -99,6 +99,7 @@
         "numeric": "cpp",
         "random": "cpp",
         "ranges": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "filesystem": "cpp"
     }
 }

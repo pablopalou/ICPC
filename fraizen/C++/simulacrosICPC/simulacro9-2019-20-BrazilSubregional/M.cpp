@@ -61,9 +61,56 @@ template <class T> void _print(multiset <T> v) {cout << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cout << "[ "; for (auto i : v) {_print(i); cout << " ";} cout << "]";}
 template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t i = 0; i < N; ++i) {_print(arr[i]); cout << " ";}cout << "]";}
 
+bool valid(ll mid, ll a[], ll n, ll c, ll t){
+    int i = 0;
+    int pers = 1;
+    while( pers <= c && i < n){
+        ll cur = 0;
+        while ((cur + a[i]) <= (mid * t)){
+            cur += a[i];
+            i++;
+        }
+        pers++;
+    }
+    if (i == n){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Copiar obligatoriamente 0
 void solve() {
-
+    ll n,c,t; cin >> n >> c >> t;
+    ll a[n];
+    fr(0,n){
+        cin >> a[i];
+    }
+    ll suma = 0;
+    ll maximo = 0;
+    fr(0,n){
+        suma += a[i];
+        maximo = max(a[i], maximo);
+    }
+    ll l = max(ll(ceil(maximo/double(t))) - 1, ll(0));
+    ll r = ll(ceil(suma/double(t))) + 1;
+    // cout(ll(ceil(suma/t)));
+    ll res = r;
+    // cout(l);
+    // cout(r);
+    // cout('a');
+    while (l <= r){
+        ll mid = l + (r-l) / 2;
+        // cout << "mid:" << mid << endl;
+        // cout << valid(mid, a, n,c,t) << endl;
+        if (valid(mid, a, n,c,t)){
+            res = mid;
+            r = mid-1;
+        } else {
+            l = mid+1;
+        }
+    }
+    cout << res << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -74,8 +121,8 @@ int main() {
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("M.in", "r", stdin);
+    // freopen("M.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

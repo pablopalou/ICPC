@@ -10,6 +10,8 @@
 #include <math.h>
 using namespace std;
 
+#define fr(a,b) for(int i = a; i<b; i++)
+#define cout(x) cout << x << "\n";
 typedef long long ll;
 typedef vector<ll> vi;
 #define pb push_back

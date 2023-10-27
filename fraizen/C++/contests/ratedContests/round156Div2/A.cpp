@@ -63,22 +63,68 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
+    ll n; cin >> n;
+    if (n < 10){
+        if (n == 8){
+            cout("YES");
+            cout << 1 << ' ' << 2 << ' ' << 5 << "\n";
+            return;
+        } else if (n==7){
+            cout("YES");
+            cout << 1 << ' ' << 2 << ' ' << 4 << "\n";
+            return;
+        }
+        cout("NO");
+        return;
+    } else {
+        cout("YES");
+        if (n % 3 == 0){
+            if ( ((n/3 )% 3) == 0){
+                n = n/3;
+                cout << n-5 << ' ' << n+1 << ' ' << n+4 << "\n";
+                return;
+            } else {
+                n = n/3;
+                cout << n-3 << ' ' << n << ' ' << n+3 << "\n";
+                return;
+            }
+        } else if ((n % 3 == 1)){
+            n = n/3;
+            if (n%3 == 0){
+                cout << n-2 << ' ' << n+1 << ' ' << n+2 << "\n";
+                return;
+            } else if (n%3 == 1){
+                cout << n-2 << ' ' << n << ' ' << n+3 << "\n";
+                return;
+            } else {
+                cout << n-1 << ' '  << n << ' ' << n+2 << "\n";
+                return;
+            }
+        } else if ((n % 3 == 2)){
+            n = n/3;
+            if (n%3 == 0){
+                cout << n-1 << ' ' << n+1 << ' ' << n+2 << "\n";
+                return;
+            } else if (n%3 == 1){
+                cout << n-2 << ' ' << n << ' ' << n+4 << "\n";
+                return;
+            } else {
+                cout << n-1 << ' ' << n << ' ' << n+3 << "\n";
+                return;
+            }
+        }
+    }
 
 }
 
 // ACORDATE DE USAR LONG LONG
-// PENSAR LOS EJERCICIOS AL REVES
 int main() {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
-
-    int cases = 1;
-    // cin >> cases;
+    ll cases = 1;
+    cin >> cases;
     while(cases--){
         solve();
     }

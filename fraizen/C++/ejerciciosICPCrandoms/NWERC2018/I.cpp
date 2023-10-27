@@ -63,19 +63,32 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    int n; cin >> n;
+    int a[n+1];
+    fr(1,n+1){
+        cin >> a[i];
+    }
+    sort(a+1,a+n+1);
+    double res = 2.0;
+    fr(1,n+1){
+        if (a[i] > i){
+            cout(-1);
+            return;
+        }
+        res = min((res), double(a[i]/double(i)));
+    }
+    prDouble(res);
 }
 
 // ACORDATE DE USAR LONG LONG
-// PENSAR LOS EJERCICIOS AL REVES
 int main() {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("I.in", "r", stdin);
+    // freopen("i.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

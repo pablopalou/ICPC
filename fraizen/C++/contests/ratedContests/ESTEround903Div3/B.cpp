@@ -63,7 +63,30 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    int a, b, c; 
+    cin >> a >> b >> c;
+    int arr[3];
+    arr[0] = a;
+    arr[1] = b;
+    arr[2] = c;
+    sort(arr, arr + 3);
+    if (arr[0] * 2 != arr[1] && arr[0] != arr[1]){
+        cout("NO");
+        return;
+    }
+    if (arr[0] == arr[1]){
+        if (arr[2] == arr[1] || arr[2] == 2 * arr[1] || arr[2] == 3 * arr[1] || arr[2] == 4 * arr[1]){
+            cout("YES");
+        } else {
+            cout("NO");
+        }
+    } else {
+        if (arr[2] == arr[1] || (arr[2] == (arr[1] + arr[0]))){
+            cout("YES");
+        } else {
+            cout("NO");
+        }
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -74,11 +97,11 @@ int main() {
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("A.in", "r", stdin);
+    // freopen("A.out", "w", stdout);
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

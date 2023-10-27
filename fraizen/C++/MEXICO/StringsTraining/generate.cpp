@@ -63,7 +63,9 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    fr(0,5000){
+        cout << 'd';
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -72,10 +74,6 @@ int main() {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-
-    // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

@@ -74,8 +74,8 @@ int main() {
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("A.in", "r", stdin);
+    // freopen("A.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

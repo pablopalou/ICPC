@@ -63,7 +63,27 @@ template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t
 
 // Copiar obligatoriamente 0
 void solve() {
-
+    ll n; cin >> n;
+    ll carlos = 0;
+    bool perdio = false;
+    fr(0,n){
+        if (i == 0){
+            cin >> carlos;
+            // cout(carlos);
+        } else {
+            ll f;
+            cin >> f;
+            // cout(f);
+            if (f > carlos){
+                perdio = true;
+            }
+        }
+    }
+    if (perdio){
+        cout("N");
+    } else {
+        cout("S");
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -74,8 +94,8 @@ int main() {
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("B.in", "r", stdin);
+    // freopen("B.out", "w", stdout);
 
     int cases = 1;
     // cin >> cases;

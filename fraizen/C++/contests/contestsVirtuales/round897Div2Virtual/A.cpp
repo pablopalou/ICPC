@@ -42,6 +42,7 @@ void solve() {
 }
 
 int main() {
+    double timing = clock();
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -51,4 +52,5 @@ int main() {
     while(cases--){
         solve();
     }
+    cerr<<"\n\nREAL TIME: "<<fixed<<setprecision(4)<<(clock()-timing)/CLOCKS_PER_SEC<<endl;
 }

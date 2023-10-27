@@ -61,10 +61,69 @@ template <class T> void _print(multiset <T> v) {cout << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cout << "[ "; for (auto i : v) {_print(i); cout << " ";} cout << "]";}
 template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t i = 0; i < N; ++i) {_print(arr[i]); cout << " ";}cout << "]";}
 
+
+int doesSubstringExists(string s1, string s2)
+{
+    // calculating the length of the main string and the substring
+    int len1 = s1.length();
+    int len2 = s2.length();
+
+    // loop to iterate at each character in the string s1 to match the string s2
+    for (int i = 0; i <= len1 - len2; i++)
+    {
+        int j;
+
+        // inner loop to iterate over each character in the string s2, if it matches that particular string s1 char group, on which we are currently iterating from the outer loop
+        for (j = 0; j < len2; j++)
+        {
+            if (s1[i + j] != s2[j])
+            {
+                // breaking the loop if the match fails
+                break; 
+            }
+        }
+        if (j == len2)
+        {
+            // returning the current index of i, if finally match completed
+            return i; 
+        }
+    }
+    // else returning -1
+    return -1; 
+}
+
 // Copiar obligatoriamente 0
 void solve() {
-
+    int n;
+    int m; cin >> n >> m;
+    string x; cin >> x;
+    string s; cin >> s;
+    string x2 = x;
+    int res = 0;
+    while (x2.size() < 65 * s.size()){
+        // cout(x2.size());
+        if (x2.size() < s.size()){
+            x2 = x2 + x2;
+            res++;
+            continue;
+        } else {
+            // cout(x2);
+            // cout(x2.size());
+            // cout(s);
+            bool isFound = x2.find(s) != string::npos;
+            // int isFound = doesSubstringExists(s,x2);
+            // cout(isFound);
+            if (isFound){
+                cout(res);
+                return;
+            }
+            x2 = x2+x2;
+            res++;
+        }
+    }
+    cout(-1);
 }
+
 
 // ACORDATE DE USAR LONG LONG
 // PENSAR LOS EJERCICIOS AL REVES
@@ -74,11 +133,11 @@ int main() {
     cout.tie(nullptr);
 
     // BORRAR
-    freopen("A.in", "r", stdin);
-    freopen("A.out", "w", stdout);
+    // freopen("A.in", "r", stdin);
+    // freopen("A.out", "w", stdout);
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }
