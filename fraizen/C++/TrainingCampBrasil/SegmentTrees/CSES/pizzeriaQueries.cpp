@@ -6,11 +6,10 @@ typedef long long ll;
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
 #define dforn(i,n) for(int i=n-1;i>=0;i--)
-int a[n];
+
 typedef ll tipo;
 const tipo neutro = 1e9;
-tipo oper(const tipo& a, const tipo& b) { return a[a] >= a[b]; }
-
+tipo oper(const tipo& a, const tipo& b) { return min(a,b); }
 struct ST {
 	int sz;
 	vector<tipo> t;
@@ -40,15 +39,37 @@ struct ST {
 // Copiar obligatoriamente 0
 void solve() {
     int n,q; cin >> n >> q;
-    ST st = ST(n);
+    int a[n]; //ni necesito este arreglo
+    ST stIzq = ST(n);
+    ST stDer = ST(n);
     fr(0,n){
-        int a; cin >> a;
-        st[i] = a;
+        cin >> a[i];
+        stDer[i] = a[i] + i;
     }
-    st.updall();
+    for(int i = n-1; i>=0; i--){
+        stIzq[i] = a[i] + n-1 - i;
+    }
+    stIzq.updall();
+    stDer.updall();
     fr(0,q){
-        int l, r; cin >> l >> r;
-        cout << st.get(l-1,r) << "\n";
+        int type; cin >> type;
+        if (type == 1){
+            int i, newVal; cin >> i >> newVal;
+            i--;
+            //en cuanto estaba no me interesa, solo tengo que hacer el update basicamente.
+            a[i] = newVal;
+            stDer.set(i, a[i] + i);
+            stIzq.set(i, a[i] + n-1 - i);
+        } else {
+            int q; cin >> q;
+            q--;
+            //tengo dos opciones, o voy para la izquierda en cuyo caso pregunto por [0,q]
+            int izq = stIzq.get(0,q+1) - n + 1 + q;
+            //o voy pa la derecha y pregunto por []
+            int der = stDer.get(q,n) - q;
+            //habria que ver si falta a[i]...
+            cout << min(izq, der) << "\n";
+        }
     }
 }
 

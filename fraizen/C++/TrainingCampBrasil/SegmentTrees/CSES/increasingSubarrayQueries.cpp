@@ -5,12 +5,26 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define dforn(i,n) for(int i=n-1;i>=0;i--)
-int a[n];
-typedef ll tipo;
-const tipo neutro = 1e9;
-tipo oper(const tipo& a, const tipo& b) { return a[a] >= a[b]; }
 
+#define dforn(i,n) for(int i=n-1;i>=0;i--)
+
+//no anda. Hay que llevar minimo del rango y cuanto faltaria para llevar a todos los numeros lo cual es inviable. s
+typedef tuple<ll,ll,ll> tipo;
+const tipo neutro = {0,0,0};
+tipo oper(const tipo& a, const tipo& b) {
+    tuple<ll,ll,ll> c;
+    if (get<1>(b) <= get<1>(a)){
+        get<0>(c) = get<0>(a) + get<0>(b) + (get<1>(a) - get<1>(b)) * get<2>(b);
+    } else {
+        get<0>(c) = get<0>(a) + get<0>(b);
+    }
+    // cout << get<0>(a) << endl;
+    // cout << get<0>(b) << endl;
+    get<1>(c) = max(get<1>(a), get<1>(b));
+    get<2>(c) = get<2>(a) + get<2>(b);
+    // cout << get<0>(c) << " " << get<1>(c) << " " << get<2>(c) << " " << "\n";
+    return c;
+}
 struct ST {
 	int sz;
 	vector<tipo> t;
@@ -39,16 +53,19 @@ struct ST {
 
 // Copiar obligatoriamente 0
 void solve() {
-    int n,q; cin >> n >> q;
+    ll n,q; cin >> n >> q;
     ST st = ST(n);
+    ll a[n];
     fr(0,n){
-        int a; cin >> a;
-        st[i] = a;
+        cin >> a[i];
+        st[i] = {0,a[i], 1};
     }
     st.updall();
+    // cout << get<0>(st[1]) << " " << get<1>(st[1]) << " " << get<2>(st[1]) << " " << "\n";
     fr(0,q){
-        int l, r; cin >> l >> r;
-        cout << st.get(l-1,r) << "\n";
+        ll l,r; cin >> l >> r;
+        // cout << l-1 << ' ' << r << endl;
+        cout << get<0>(st.get(l-1, r)) << "\n";
     }
 }
 

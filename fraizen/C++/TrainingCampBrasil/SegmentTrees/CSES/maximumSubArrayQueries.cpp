@@ -6,11 +6,17 @@ typedef long long ll;
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
 #define dforn(i,n) for(int i=n-1;i>=0;i--)
-int a[n];
-typedef ll tipo;
-const tipo neutro = 1e9;
-tipo oper(const tipo& a, const tipo& b) { return a[a] >= a[b]; }
 
+typedef tuple<ll, ll, ll, ll> tipo; //guardo suma, maxSubarray, max prefijo y max sufijo
+const tipo neutro = {0,0,0,0};
+tipo oper(const tipo& a, const tipo& b) {
+    tuple<ll,ll,ll,ll> t;
+    get<0>(t) = get<0>(a) + get<0>(b);
+    get<1>(t) = max(get<1>(a), max(get<1>(b), get<3>(a) + get<2>(b)));
+    get<2>(t) = max(get<2>(a), get<0>(a) + get<2>(b));
+    get<3>(t) = max(get<3>(b), get<0>(b) + get<3>(a));
+    return t;
+}
 struct ST {
 	int sz;
 	vector<tipo> t;
@@ -36,19 +42,24 @@ struct ST {
 		}
 	}
 };
-
 // Copiar obligatoriamente 0
 void solve() {
-    int n,q; cin >> n >> q;
+    int n, q; cin >> n >> q;
+    int a[n];
     ST st = ST(n);
     fr(0,n){
-        int a; cin >> a;
-        st[i] = a;
+        cin >> a[i];
+        st[i] = {a[i],max(a[i], 0), max(a[i], 0), max(a[i], 0)};
     }
     st.updall();
-    fr(0,q){
-        int l, r; cin >> l >> r;
-        cout << st.get(l-1,r) << "\n";
+    rep(j,0,q){
+        int i, newVal; cin >> i >> newVal;
+        i--;
+        st.set(i, {newVal, max(0,newVal), max(0,newVal), max(0,newVal)});
+        // fr(0,n){
+        //     cout << "st[" << i << "] = { " << get<0>(st[i]) << ','<< get<1>(st[i]) << ','<< get<2>(st[i]) << ','<< get<3>(st[i]) << " }" << endl;
+        // }
+        cout << get<1>(st.get(0,n))<< "\n";
     }
 }
 

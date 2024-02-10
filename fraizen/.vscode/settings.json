@@ -28,6 +28,7 @@
         "ios": "cpp",
         "complex": "cpp",
         "tuple": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "iomanip": "cpp"
     }
 }

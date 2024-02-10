@@ -6,11 +6,11 @@ typedef long long ll;
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
 #define dforn(i,n) for(int i=n-1;i>=0;i--)
-int a[n];
-typedef ll tipo;
-const tipo neutro = 1e9;
-tipo oper(const tipo& a, const tipo& b) { return a[a] >= a[b]; }
+#define mp make_pair
 
+typedef pair<ll,ll> tipo;
+const tipo neutro = mp(0,0);
+tipo oper(const tipo& a, const tipo& b) { return mp(a.first + b.first, max(a.second, a.first + b.second));}
 struct ST {
 	int sz;
 	vector<tipo> t;
@@ -40,15 +40,20 @@ struct ST {
 // Copiar obligatoriamente 0
 void solve() {
     int n,q; cin >> n >> q;
+    int a[n];
     ST st = ST(n);
     fr(0,n){
-        int a; cin >> a;
-        st[i] = a;
+        cin >> a[i];
+        st[i] = mp(a[i], max(0,a[i]));
     }
     st.updall();
     fr(0,q){
-        int l, r; cin >> l >> r;
-        cout << st.get(l-1,r) << "\n";
+        int t,l,r; cin >> t >> l >> r;
+        if (t == 1){
+            st.set(l-1, mp(r,max(r,0)));
+        } else {
+            cout << st.get(l-1, r).second << "\n";
+        }
     }
 }
 
