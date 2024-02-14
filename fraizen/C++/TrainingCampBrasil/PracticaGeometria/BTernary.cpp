@@ -15,8 +15,6 @@ const int MAXC = 10004;
 ld lx, ly, lz;
 int n;
 
-
-
 ld distance (ld x, ld y, ld z, Point p){
     ld dx = p.x - x;
     ld dy = p.y - y;

@@ -61,13 +61,13 @@ bool intersect(Point a, Point b, Point c, Point d){
     if (areCollinear(a,b,c) && areCollinear(a,b,d)){
         return interCollinear(a.x, b.x, c.x, d.x) && interCollinear(a.y, b.y, c.y, d.y);
     }
-    if (a.x == 2 && a.y == 0 && b.x == 0 && b.y == 2 && c.x ==0&& c.y==1){
-        bool h = sgn(a.cross2(b, c)) != sgn(a.cross2(b, d));
-        bool j = sgn(c.cross2(d, a)) != sgn(c.cross2(d, b));
-        // cout << "1 => " << h << endl;
-        // cout << "2 => " << j << endl;
-        // cout << "total => " << sgn(a.cross2(b, c)) != sgn(a.cross2(b, d)) && sgn(c.cross2(d, a)) != sgn(c.cross2(d, b)) << endl;
-    }
+    // if (a.x == 2 && a.y == 0 && b.x == 0 && b.y == 2 && c.x ==0&& c.y==1){
+    //     bool h = sgn(a.cross2(b, c)) != sgn(a.cross2(b, d));
+    //     bool j = sgn(c.cross2(d, a)) != sgn(c.cross2(d, b));
+    //     // cout << "1 => " << h << endl;
+    //     // cout << "2 => " << j << endl;
+    //     // cout << "total => " << sgn(a.cross2(b, c)) != sgn(a.cross2(b, d)) && sgn(c.cross2(d, a)) != sgn(c.cross2(d, b)) << endl;
+    // }
     // caso normal (me fijo si estan cruzados digamos)
     return sgn(a.cross2(b, c)) != sgn(a.cross2(b, d)) && sgn(c.cross2(d, a)) != sgn(c.cross2(d, b));
 }
@@ -158,14 +158,14 @@ void solve() {
                 // if (i == 1 && i+len == 4){
                 //     cout << outsidePoly[i][j] << endl;
                 // }
-                if (outsidePoly[i][i+len]) continue;
-                if (i == 0 && i+len == 3){
-                    // cout << "sigox3 j =" << j << endl;
-                    // cout << "i = " << i << endl;
-                    // cout << "i+len = " << i+len << endl;
-                    // cout << dp[i][j] << endl;
-                    // cout << dp[j][i+len] << endl;
-                }
+                if (outsidePoly[i][j] || outsidePoly[j][i+len]) continue;
+                // if (i == 0 && i+len == 3){
+                //     // cout << "sigox3 j =" << j << endl;
+                //     // cout << "i = " << i << endl;
+                //     // cout << "i+len = " << i+len << endl;
+                //     // cout << dp[i][j] << endl;
+                //     // cout << dp[j][i+len] << endl;
+                // }
                 dp[i][i+len] = ((dp[i][i+len] % ll(mod) )+  (dp[i][j] % ll(mod) * dp[j][i+len] % ll(mod)) % ll(mod)) % ll(mod);
             }
         }
