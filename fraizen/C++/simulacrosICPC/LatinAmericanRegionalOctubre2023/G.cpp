@@ -91,9 +91,9 @@ vector<Segment> intersectSegments(vector<Segment> s1,vector<Segment> s2){
         }
     }
     vector<Segment> newAns;
-    std::set<std::pair<Point, Point>> seen;
+    set<pair<Point, Point>> seen;
     for(const auto& seg : ans) {
-        auto p1 = seg.p1 < seg.p2 ? std::make_pair(seg.p1, seg.p2) : std::make_pair(seg.p2, seg.p1);
+        auto p1 = seg.p1 < seg.p2 ? make_pair(seg.p1, seg.p2) : make_pair(seg.p2, seg.p1);
         if (seen.insert(p1).second) {
             newAns.push_back(seg);
         }
