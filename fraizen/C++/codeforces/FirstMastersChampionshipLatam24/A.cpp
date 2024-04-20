@@ -9,7 +9,29 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    ll a,b,c; cin >> a>>b>>c;
+    if(c == 1) {
+        cout << "0\n"; return;
+    }
+    ll res = 0;
+    ll aptos = 1;
+    ll plata = 0;
+    while(true){
+        // cout << plata << ' ' << aptos << endl;
+        plata += aptos * b;
+        res++;
+        if (plata >= a){
+            // cout << plata << endl;
+            // cout << plata/a << endl;
+            aptos += (plata/a);
+            // cout << "compro " << aptos << endl;
+            if (aptos >= c){
+                cout << res << "\n"; return;
+            }
+            plata -= ((plata/a )* a);
+            // cout << "plata = " <<plata << endl;
+        }
+    }
 }
 
 // ACORDATE DE USAR LONG LONG

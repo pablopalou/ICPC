@@ -5,11 +5,26 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    string s;
+    string a[10];
+    int i = 0;
+    fr(0,10) {
+        cin >> a[i];
+    }
+    //ya tenemos las lineas es solo pasar a ascii e imprimir.
+    rep(j,1,a[0].size()-1){
+        int ascii = 0;
+        fr(1,9){
+            if (a[i][j] == '\\'){
+                ascii += (1<<(i-1));
+            }
+        }
+        cout << char(ascii);
+    }
+    cout << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +39,8 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
+    cin.ignore();
     while(cases--){
         solve();
     }

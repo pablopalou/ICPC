@@ -9,7 +9,29 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int h; int m; cin >> h>>m;
+    int mins = 60*h + m;
+    int n;cin >> n;
+    int a[n], b[n];
+    fr(0,n){
+        cin >> a[i] >>b[i];
+    }
+    int i = 0;
+    ll res = 0;
+    while(mins > 0){
+        // cout << i << endl;
+        if (i < n){
+            int cobrar = min(a[i], mins);
+            // cout << cobrar << endl;
+            mins -= cobrar;
+            res += cobrar * b[i];
+        } else {
+            cout << res << "\n";
+            return;
+        }
+        i++;
+    }
+    cout << res << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG

@@ -9,7 +9,26 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    string s; 
+    while(cin >>s){
+        vector<int> pos;
+        fr(0,s.size()){
+            if (s[i] == 'X'){
+                pos.pb(i);
+            }
+        }
+        int res = 0;
+        res = max(res, pos[0]-1);
+        res = max(res, (int)s.size() - pos[pos.size()-1] - 2);
+        // fr(0,pos.size()){
+        //     cout << pos[i] << ' ';
+        // }
+        // cout << endl;
+        fr(0,pos.size()-1){
+            res = max(res, (pos[i+1] - pos[i] - 2)/2);
+        }
+        cout << res << "\n";
+    }
 }
 
 // ACORDATE DE USAR LONG LONG

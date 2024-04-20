@@ -61,9 +61,40 @@ template <class T> void _print(multiset <T> v) {cout << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cout << "[ "; for (auto i : v) {_print(i); cout << " ";} cout << "]";}
 template <class T, size_t N> void _print(T (&arr)[N]) {cout << "[ "; for (size_t i = 0; i < N; ++i) {_print(arr[i]); cout << " ";}cout << "]";}
 
+unordered_set<int> dividen(int x){
+    unordered_set<int> cur;
+    fr(1, ceil(sqrt(x)) + 1){
+        if (x%i == 0){
+            if (i%2 == 0){
+                cur.insert(i);
+            }
+            if ((x/i)%2 == 0){
+                cur.insert(x/i);
+            }
+        }
+    }
+    unordered_set<int> res;
+    fre(cur){
+        res.insert((e + 2) / 2);
+    }
+    return res;
+}
+
 // Copiar obligatoriamente 0
 void solve() {
-
+    int n,x; cin >> n>>x;
+    unordered_set<int> s1 = dividen(n-x);
+    unordered_set<int> s2 = dividen(n+x-2);
+    fre(s2){
+        s1.insert(e);
+    }
+    int ans = 0;
+    fre(s1){
+        if (e >= x){
+            ans++;
+        }
+    }
+    cout << ans << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -74,7 +105,7 @@ int main() {
     cout.tie(nullptr);
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

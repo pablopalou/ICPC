@@ -7,9 +7,29 @@ typedef long long ll;
 #define cout(x) cout << x << "\n";
 #define pb push_back
 
+int res= 0;
+
+void solve2(int n, int k){
+    if (n == 0){
+        cout << res << "\n"; return;
+    }
+    if (k > (1 << (n-1))){
+        res = (res * 2) + 1;
+        solve2(n-1, (1<<n) - k + 1);
+    } else {
+        res = res*2;
+        solve2(n-1, k);
+    }
+}
+
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int h; cin >> h;
+    fr(0,h){
+        int n,k; cin >> n >> k;
+        res = 0;
+        solve2(n,k+1); 
+    }
 }
 
 // ACORDATE DE USAR LONG LONG

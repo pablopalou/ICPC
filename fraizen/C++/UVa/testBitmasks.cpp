@@ -5,11 +5,14 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int mask = 18;
+    for (int subset = mask; subset; subset = (mask & (subset-1))){
+        cout << "Hago el and de mask y " << subset - 1 << endl;
+        cout << subset << "\n";
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -35,3 +38,4 @@ int main() {
 
     return 0;
 }
+

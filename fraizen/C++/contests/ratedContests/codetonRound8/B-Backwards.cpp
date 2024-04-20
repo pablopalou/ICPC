@@ -5,11 +5,20 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int n; cin >> n; int a[n]; fr(0,n) cin >> a[i];
+    int mini = n;
+    int res[n];
+    for(int i = n-1; i >=0 ; i--){
+        res[i] = -a[i] + mini;
+        mini = min(mini, res[i]);
+    }
+    fre(res){
+        cout << e << ' ';
+    }
+    cout << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +33,7 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

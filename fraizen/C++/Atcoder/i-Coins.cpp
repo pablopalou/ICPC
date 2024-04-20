@@ -5,11 +5,29 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
+
+ll n;
+double dp[3005][3005];
+double prob[3005];
+
+double f(ll x, ll y){
+    double &r = dp[x][y];
+    if(r>=0)return r;
+    if(x+y==n){
+		r=(x>y); return r;
+	}
+    r = prob[x+y] * f(x+1,y) + (1-prob[x+y])*(f(x,y+1));
+    return r;
+}
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    cin >> n;
+    memset(dp, -1, sizeof(dp));
+    fr(0,n){
+        cin >> prob[i];
+    }
+    cout << fixed << setprecision(12) << f(0,0) << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG

@@ -6,10 +6,25 @@ typedef long long ll;
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
 #define pb push_back
-
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int n,m; 
+    while(cin >> n>>m){
+        int a[n];
+        map<int, vector<int> > mapa;
+        fr(0,n){
+            cin >> a[i];
+            mapa[a[i]].pb(i+1);
+        }
+        fr(0,m){
+            int k,v; cin >> k >> v;
+            if (k-1 < mapa[v].size()){
+                cout << mapa[v][k-1] << "\n";
+            } else {
+                cout << 0 << "\n";
+            }
+        }
+    }
 }
 
 // ACORDATE DE USAR LONG LONG

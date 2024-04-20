@@ -5,11 +5,16 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
+const int MAXN = 1000100;
+int min_div[MAXN];
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int n,m; cin >> n >> m;
+    if (n == 1){
+        cout << "YES\n"; return;
+    }
+    min_div[n] > m ? cout << "YES\n": cout << "NO\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +29,26 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
+
+    //aca precomputo
+
+    for(int d = 2; d * d < MAXN; d++){
+        for(int i = d*d; i<MAXN; i+=d){
+            if (min_div[i] == 0){
+                min_div[i] = d;
+            }
+        }
+    }
+    fr(1,MAXN){
+        if (min_div[i] == 0){
+            min_div[i] = i;
+        }
+    }
+    // fr(1,20){
+    //     cout << min_div[i] << " ";
+    // }
+
     while(cases--){
         solve();
     }

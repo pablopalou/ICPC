@@ -5,11 +5,20 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    string line;
+    getline(cin, line);
+    vector <string> tokens;
+    stringstream check1(line);
+    string intermediate;
+
+    while(getline(check1, intermediate, ' ')){
+        tokens.push_back(intermediate);
+    }
+    for(int i = 0; i < tokens.size(); i++)
+        cout << tokens[i] << '\n';
 }
 
 // ACORDATE DE USAR LONG LONG

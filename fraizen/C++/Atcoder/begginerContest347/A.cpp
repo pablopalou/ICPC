@@ -5,11 +5,20 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int n, k; cin >> n >> k;
+    int a[n];
+    fr(0,n){
+        cin >> a[i];
+    }
+    fr(0,n){
+        if (a[i] %k == 0){
+            cout << (a[i]/k) << " ";
+        }
+    }
+    cout << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG

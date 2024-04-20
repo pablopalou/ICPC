@@ -9,7 +9,23 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    ll n, m,k; cin >>n>>m>>k;
+    ll a[n];
+    fr(0,n) cin >> a[i];
+    sort(a, a+n);
+    ll res= 0;
+    ll i = 0;
+    ll cant = 0;
+    while (k>0){
+        ll buy = min(m,k);
+        k-=buy;
+        res += buy * a[i];
+        res+= (cant * buy);
+        // cout << "res = " <<res << endl;
+        i++;
+        cant+= buy;
+    }
+    cout << res << '\n';
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +40,7 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

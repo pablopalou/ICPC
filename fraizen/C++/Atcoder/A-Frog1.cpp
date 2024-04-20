@@ -5,11 +5,32 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
+const int MAXN = 100005;
+int dp[MAXN];
+int n;
+int h[MAXN];
+
+void fillDP(int x){
+    if (dp[x] != -1){
+        return dp[x];
+    }
+    if (n-1 == x){
+        return dp[x] = abs(h[n-1] - h[n-2]);
+    } else {
+        return dp[x] = min(abs(h[x] - h[x+1]) + dp[x+1], abs(h[x] - h[x+2]) + dp[x+2]);
+    }
+}
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    cin >> n;
+    fr(0,n){
+        cin >> h[i];
+    }
+    fill(dp, dp+MAXN, -1);
+    dp[n] = 0;
+    fillDP(n-1);
+    cout << dp[0] << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG

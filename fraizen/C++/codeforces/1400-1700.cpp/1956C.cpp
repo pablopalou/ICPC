@@ -9,7 +9,26 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int n; cin >> n;
+    int suma = 0;
+    int mult = 1;
+    fr(1,n+1){
+        suma += i * mult;
+        mult+=2;
+    }
+    cout << suma <<' ' << n*2 <<"\n";
+    for(int i = n-1;i>=0;i--){
+        cout << 1 << ' ' << i+1;
+        rep(j,1,n+1){
+            cout << ' ' << j;
+        }
+        cout << "\n";
+        cout << 2 << ' ' << i+1;
+        rep(j,1,n+1){
+            cout << ' ' << j;
+        }
+        cout << "\n";
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +43,7 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

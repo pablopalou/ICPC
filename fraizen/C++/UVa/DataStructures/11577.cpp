@@ -5,11 +5,29 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    string s; getline(cin,s);
+    map<char, int> m;
+    // cout << s << endl;
+    for(auto c: s){
+        if (c != ' '){
+            m[tolower(c)]++;
+        }
+    }
+    int maxi = 0;
+    fre(m){
+        maxi = max(maxi, e.second);
+        // cout << "m[ "<< e.first << " ] = " << e.second << endl;
+    }
+    // cout << maxi << endl;
+    fre(m){
+        if (e.second == maxi){
+            cout << e.first;
+        }
+    }
+    cout << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +42,8 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
+    cin.ignore();
     while(cases--){
         solve();
     }

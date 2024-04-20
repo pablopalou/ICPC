@@ -5,11 +5,42 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define cout(x) cout << x << "\n";
-#define pb push_back
+
+ll n,k;
+ll dp[100005];
+ll a[102];
+
+ll f(ll k){
+    ll &r = dp[k];
+    if (r != -1){
+        return r;
+    }
+    if (k == 0){
+        return 0;
+    }
+    r = 0;
+    fr(0,n){
+        if (k-a[i]>=0 && f(k-a[i]) == 0){
+            r=1;
+            return 1;
+        }
+    }
+    return 0;
+}
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    cin >> n >> k;
+    fr(0,n){
+        cin >> a[i];
+    }
+
+    memset(dp, -1, sizeof(dp));
+    if (f(k) == 1){
+        cout << "First" << "\n";
+    } else {
+        cout << "Second\n";
+    };
 }
 
 // ACORDATE DE USAR LONG LONG

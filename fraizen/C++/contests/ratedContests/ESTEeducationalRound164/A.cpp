@@ -9,7 +9,22 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    int m,k,n; cin >> m>>k>>n;
+    // cout << "m " << m << endl;
+    // cout << "k "<<k << endl;
+    // cout << "n " << n << endl;
+    if (k == 1){
+        cout << "NO\n";return;
+    }
+    int dif = (int)ceil(m/(double)k);
+    // cout << "dif " << dif << endl;
+    dif = m - dif;
+    // cout << "Dif  " << dif << endl;
+    if (n >= dif){
+        cout << "NO\n";return;
+    } else {
+        cout << "YES\n";return;
+    }
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +39,7 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }

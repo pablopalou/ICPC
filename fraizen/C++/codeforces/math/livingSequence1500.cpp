@@ -9,7 +9,23 @@ typedef long long ll;
 
 // Copiar obligatoriamente 0
 void solve() {
-    
+    ll n; cin >> n;
+    vector<ll> newNumber;
+    while(n){
+        newNumber.pb(n%9);
+        n/=9;
+    }
+    reverse(newNumber.begin(), newNumber.end());
+    fr(0,newNumber.size()){
+        if (newNumber[i] >= 4){
+            char c = newNumber[i]+1+'0';
+            cout << c;
+        } else {
+            char c =newNumber[i]+'0';
+            cout << c;
+        }
+    }
+    cout << "\n";
 }
 
 // ACORDATE DE USAR LONG LONG
@@ -24,7 +40,7 @@ int main() {
 	#endif
 
     int cases = 1;
-    // cin >> cases;
+    cin >> cases;
     while(cases--){
         solve();
     }
