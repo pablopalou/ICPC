@@ -1,0 +1,1 @@
+{"name":"Local: tp","url":"/Users/pablopalou/Documents/ICPC-full/ICPC/fraizen/C++/probandocosas/tp.cpp","tests":[{"id":1715557824293,"input":"5 2\n3 4 1 6 7\n1 2\n2 4","output":"7\n11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/pablopalou/Documents/ICPC-full/ICPC/fraizen/C++/probandocosas/tp.cpp","group":"local","local":true}

@@ -4,10 +4,8 @@ typedef long long ll;
 #define fr(a,b) for(int i = a; i<b; i++)
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
-#define cout(x) cout << x << "\n";
 #define pb push_back
 
-// Copiar obligatoriamente 0
 void solve() {
     
 }
