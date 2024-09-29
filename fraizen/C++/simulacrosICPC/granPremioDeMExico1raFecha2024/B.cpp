@@ -5,9 +5,56 @@ typedef long long ll;
 #define rep(i,a,b) for(int i = a; i<b; i++)
 #define fre(s) for(auto e:s)
 #define pb push_back
+#define forr(i, a, b) for (int i = (a); i < (b); i++)
+#define forn(i, n) forr(i, 0, n)
+#define dforn(i, n) for (int i = (n) - 1; i >= 0; i--)
+#define forall(it, v) for (auto it = v.begin(); it != v.end(); it++)
+#define sz(c) ((int)c.size())
+#define rsz resize
+#define MOD 1000000007
+
+typedef ll tipo;  // maybe use double or other depending on the problem
+struct Mat {
+  int N;  // square matrix
+  vector<vector<tipo>> m;
+  Mat(int n) : N(n), m(n, vector<tipo>(n, 0)) {}
+  vector<tipo>& operator[](int p) { return m[p]; }
+  Mat operator*(Mat& b) {  // O(N^3), multiplication
+    assert(N == b.N);
+    Mat res(N);
+    forn(i, N) forn(j, N) forn(k, N)  // remove MOD if not needed
+        res[i][j] = (res[i][j] + m[i][k] * b[k][j]) % MOD;
+    return res;
+  }
+  Mat operator^(int k) {  // O(N^3 * logk), exponentiation
+    Mat res(N), aux = *this;
+    forn(i, N) res[i][i] = 1;
+    while (k)
+      if (k & 1) res = res * aux, k--;
+      else aux = aux * aux, k /= 2;
+    return res;
+  }
+};
 
 void solve() {
-    
+    int n; cin >> n;
+    Mat mat = Mat(20);
+    fr(0,20){
+        rep(j,0,20){
+            mat.m[i][j] = 0;
+        }
+    }
+    fr(0,19){
+        mat[i][i+1] = 1;
+    }
+    mat[5][0] = 3; mat[9][0] = 3; mat[13][0] = 3; mat[17][0] = 3;
+
+    mat = mat^(n);  
+    ll res = 0;
+    fr(0,20){
+        res = (res + mat[0][i] % MOD) % MOD;
+    }
+    cout << res << '\n';
 }
 
 // ACORDATE DE USAR LONG LONG

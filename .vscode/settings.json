@@ -101,6 +101,7 @@
         "ranges": "cpp",
         "algorithm": "cpp",
         "filesystem": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "execution": "cpp"
     }
 }

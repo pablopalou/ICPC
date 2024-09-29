@@ -13,7 +13,15 @@ typedef long long ll;
 #define cout(x) cout << x << "\n";
 #define pb push_back
 
-int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
+// int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
+
+ll gcd (ll a, ll b) {
+     while (b) {
+       a %= b;
+       swap(a, b);
+     }
+     return a;
+}
 
 #define MAXP 200200  // no necesariamente primo
 int criba[MAXP + 1];
